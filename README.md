@@ -26,5 +26,9 @@ git checkout develop
 ```
 6. Para traer los cambios del repositorio remoto al repositorio local
 ```
-git pull develop
+git pull origin develop
+```
+7. ACtualizar todos los branch existente
+```
+git fetch origin
 ```
