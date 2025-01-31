@@ -24,3 +24,7 @@ git branch
 git checkout <<branch>>
 git checkout develop
 ```
+6. Para traer los cambios del repositorio remoto al repositorio local
+```
+git pull develop
+```
