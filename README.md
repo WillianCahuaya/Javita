@@ -49,3 +49,27 @@ git commit -m "Su mensaje respectivo"
 git push origin <<branch>>
 git push origin develop
 ```
+
+## Comandos Windows
+
+1. Abrir pantalla de comandos
+```
+Teclas  : Windows + R
+escribes: CMD
+```
+2. Limpiar la pantalla de comandod
+```
+cls
+```
+3. Redireccionar hacia una carpeta
+```
+cd <<archivos>>
+```
+4. Retroceder a un archivo anterior
+```
+cd ..
+```
+5. Mostrar las carpetas y archivos dentro del folder ubicado
+```
+dir
+```
