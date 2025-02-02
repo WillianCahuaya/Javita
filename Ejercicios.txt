@@ -1,0 +1,10 @@
+Ejercicio 1:
+Vamos a agregar un archivo de ejemplo en nuestro proyecto Javita, para eso deben asegurarse de seguir los pasos comunes:
+1- Deben ubicarse en el branch principal, para nuestro caso seria develop
+2- Deben asegurarse que este branch este actualizado con los ultimos cambios
+3- Deben crear su propio espacio de trabajo (nuevo branch) para que puedan agregar su archivo de ejemplo
+4- Deben aplicar el cambio de agregar un archivo de ejemplo
+5- Deben agregar al stage el nuevo archivo
+6- Deben commitear con un mensaje entendible
+7- Deben publicar el cambio en el repositorio remoto
+8- Deben crear el pull request dirgido de su branch a develop
