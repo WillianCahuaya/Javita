@@ -73,3 +73,8 @@ cd ..
 ```
 dir
 ```
+
+## Aprendiendo tecnologias
+1- Git y Github
+2- Trello
+3- Scrum
