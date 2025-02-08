@@ -85,15 +85,34 @@ cd ..
 ```
 dir
 ```
-## Comandos Windows
+## Herramientas de trabajo
 
 1. Link para generar proyecto Java con spring boot
 ```
 https://start.spring.io/
 ```
 
+2. Link para postman
+```
+https://www.postman.com/downloads/
+```
+
+3. Localhost Java
+```
+http://localhost:8080/
+http://localhost:8080/users/all
+http://localhost:8080/products/all
+http://localhost:8080/categories/all
+```
+
 ## Aprendiendo tecnologias
 1. Git y Github
 2. Trello
 3. Scrum
-4. Java
+4. Java (Spring boot)
+5. Postman
+
+## Temas
+Willian => User | Users
+Lilian  => Product | Produts
+Jhon    => Category | Categories
