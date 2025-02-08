@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "15f9aa2d-a13c-40c0-b60f-1d545d3c8d99",
+		"_postman_id": "f30a67bc-22af-44a2-90e0-fc93e483f5ac",
 		"name": "AUTONOMA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "41946671"
+		"_exporter_id": "40289454"
 	},
 	"item": [
 		{
@@ -52,14 +52,44 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8080/users/all",
+					"raw": "http://localhost:8080/products/all",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"users",
+						"products",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Categories",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/categories/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categories",
 						"all"
 					]
 				}
