@@ -1,13 +1,43 @@
 {
 	"info": {
-		"_postman_id": "4777665a-2509-4756-83a0-175bd9ccfdc6",
+		"_postman_id": "15f9aa2d-a13c-40c0-b60f-1d545d3c8d99",
 		"name": "AUTONOMA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "8112246"
+		"_exporter_id": "41946671"
 	},
 	"item": [
 		{
 			"name": "Get users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
