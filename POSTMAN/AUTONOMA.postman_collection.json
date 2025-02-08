@@ -12,30 +12,25 @@
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "Authorization",
-						"value": "{{access_token}}",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{accessControlUrl}}/role",
+					"raw": "http://localhost:8080/users/all",
+					"protocol": "http",
 					"host": [
-						"{{accessControlUrl}}"
+						"localhost"
 					],
+					"port": "8080",
 					"path": [
-						"role"
+						"users",
+						"all"
 					]
 				}
 			},
