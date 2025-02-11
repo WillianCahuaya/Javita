@@ -5,12 +5,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("customers")
+@RequestMapping("brands")
 
-public class ClientController {
-
+public class BrandController {
+    
     @GetMapping("all")
-    public String getcustomers() {
-        return "mis clientes";
+    public String getBrands(){
+        return "Mi Marca";
     }
+       
 }
