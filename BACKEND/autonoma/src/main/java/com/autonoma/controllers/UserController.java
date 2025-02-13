@@ -1,7 +1,12 @@
 package com.autonoma.controllers;
 //package           => Es el lugar donde esta tu clase
 
+import com.autonoma.utils.MemoryUserDB;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,9 +28,30 @@ public class UserController {
     //return    => Es para retornar el objeto
     //@GetMapping("all")    => Anontacion para asignar un nombre al servicio
     
-    @GetMapping("all")
-    public String getUsers() {
-        return "Mis usuarios activos";
+    //CRUD =>  Create, Read, Update, Delete
+    
+    @PostMapping("create")
+    public String createUser() {
+        System.out.println("Se comienza a crear los usuarios");
+        MemoryUserDB.init();
+        return "Se ha creado usaurios";
+    }
+    
+    @GetMapping("read/{id}")
+    public String getUsers(@PathVariable("id") Integer id) {
+        System.out.println("Se intenta llamar al usuario: " + id);
+        String value = MemoryUserDB.read(id);
+        return "Obteniendo mi usuario con nombre: " + value;
+    }
+    
+    @PutMapping("update")
+    public String updateUser() {
+        return "Actualziando mi usuario";
+    }
+    
+    @DeleteMapping("delete")
+    public String deleteUser() {
+        return "Eliminando mi usuario";
     }
     
 }
