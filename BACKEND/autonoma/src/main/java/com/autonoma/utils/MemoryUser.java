@@ -1,6 +1,6 @@
 package com.autonoma.utils;
 
-import dtos.UserDto;
+import com.autonoma.dtos.UserDto;
 import java.util.HashMap;
 import java.util.Map;
 

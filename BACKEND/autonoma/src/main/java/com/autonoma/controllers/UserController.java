@@ -1,7 +1,7 @@
 package com.autonoma.controllers;
 
 import com.autonoma.utils.MemoryUser;
-import dtos.UserDto;
+import com.autonoma.dtos.UserDto;
 import java.util.Map;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,5 +1,5 @@
 
-package dtos;
+package com.autonoma.dtos;
 
 
 public class UserDto {
