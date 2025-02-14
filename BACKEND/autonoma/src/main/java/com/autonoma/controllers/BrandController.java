@@ -1,6 +1,6 @@
 package com.autonoma.controllers;
 
-import com.autonoma.utils.MemoryUserDB;
+import com.autonoma.utils.MemoryUser;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,16 +21,12 @@ public class BrandController {
     
     @PostMapping("create")
     public String createBrands(){
-        System.out.println("Se comenzo a crear la marca del producto");
-        MemoryUserDB.init();
         return "Se creo la marca";
     }
     
     @GetMapping("read/{id}")
     public String getBrands(@PathVariable("id") Integer id) {
-        System.out.println("Se intenta llamar a la marca: " + id);
-        String value = MemoryUserDB.read(id);
-        return "Obteniendo la marca con el nombre: " + value;
+        return "Obteniendo la marca con el nombre: ";
     }
     
     @PutMapping("update")

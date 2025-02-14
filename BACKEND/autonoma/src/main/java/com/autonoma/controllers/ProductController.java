@@ -1,6 +1,5 @@
 package com.autonoma.controllers;
 
-import com.autonoma.utils.MemoryUserDB;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,16 +20,12 @@ public class ProductController {
     
     @PostMapping("create")
     public String createProducts(){
-        System.out.println("Se comieza a crear los productos");
-        MemoryUserDB.init();
         return "Se ha creado los productos,de cada categoria";
     }
     
     @GetMapping("read/{id}")
      public String getProducts(@PathVariable("id")Integer id){
-        System.out.println("Se intenta llamar al producto: " + id);
-        String value = MemoryUserDB.read(id);
-        return "Obtener usuario con su nombre: " + value;
+        return "Obtener usuario con su nombre: ";
      }
      
     @PutMapping("update")

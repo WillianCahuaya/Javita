@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "300596aa-5dda-4277-92f4-8d03ea7ced1e",
+		"_postman_id": "a7b20232-9470-4250-a93c-99f470860f07",
 		"name": "AUTONOMA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "40289454"
+		"_exporter_id": "8112246"
 	},
 	"item": [
 		{
@@ -553,7 +553,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/users/read/1",
+							"raw": "http://localhost:8080/users/get/6",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -561,8 +561,38 @@
 							"port": "8080",
 							"path": [
 								"users",
-								"read",
-								"1"
+								"get",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"getAll"
 							]
 						}
 					},
@@ -578,7 +608,12 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": ""
+							"raw": "{\r\n    \"id\": \"4\",\r\n    \"name\": \"Manuel\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
 							"raw": "http://localhost:8080/users/create",
@@ -650,66 +685,6 @@
 					"response": []
 				}
 			]
-		},
-		{
-			"name": "Get Customers",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:8080/customers/all",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"customers",
-						"all"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Categories",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:8080/categories/all",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"categories",
-						"all"
-					]
-				}
-			},
-			"response": []
 		}
 	]
 }
