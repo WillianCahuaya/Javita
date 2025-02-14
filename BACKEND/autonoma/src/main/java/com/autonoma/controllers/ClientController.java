@@ -10,31 +10,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("categories")
-public class CategoryController {
+@RequestMapping("client")
 
+public class ClientController {
+    
     @PostMapping("create")
-    public String createCategories() {
-        System.out.println("Se comienza a crear categorias");
+    public String createClient() {
+        System.out.println("Se comienza a crear los usuarios");
         MemoryUserDB.init();
-        return "Se ha creado categorias";
+        return "Se ha creado cliente";
     }
     
     @GetMapping("read/{id}")
-    public String getCategories(@PathVariable("id") Integer id) {
+    public String getClient(@PathVariable("id") Integer id) {
         System.out.println("Se intenta llamar al usuario: " + id);
         String value = MemoryUserDB.read(id);
         return "Obteniendo mi usuario con nombre: " + value;
     }
     
     @PutMapping("update")
-    public String updateCategories() {
-        return "Actualziando mi usuario";
+    public String updateClient() {
+        return "Actualziando mi cliente";
     }
     
     @DeleteMapping("delete")
-    public String deleteCategories() {
-        return "Eliminando mi usuario";
+    public String deleteClient() {
+        return "Eliminando mi cliente";
     }
    
-} 
+}
