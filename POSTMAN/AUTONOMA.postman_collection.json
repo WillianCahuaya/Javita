@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "a7b20232-9470-4250-a93c-99f470860f07",
+		"_postman_id": "28327400-6fdf-49a8-aa32-5ea49a4f0ebe",
 		"name": "AUTONOMA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "8112246"
+		"_exporter_id": "40289454"
 	},
 	"item": [
 		{
@@ -158,21 +158,14 @@
 			"item": [
 				{
 					"name": "Get client",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"auth": {
 							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "http://localhost:8080/client/read/2",
+							"raw": "http://localhost:8080/client/get/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -180,8 +173,8 @@
 							"port": "8080",
 							"path": [
 								"client",
-								"read",
-								"2"
+								"get",
+								"4"
 							]
 						}
 					},
@@ -197,7 +190,12 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": ""
+							"raw": "{\r\n    \"id\": \"4\",\r\n    \"name\": \"Manuel\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
 							"raw": "http://localhost:8080/client/create",
