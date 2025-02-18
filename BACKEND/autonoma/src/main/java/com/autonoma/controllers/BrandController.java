@@ -1,11 +1,14 @@
 package com.autonoma.controllers;
 
-import com.autonoma.utils.MemoryUser;
+import com.autonoma.dtos.BrandDto;
+import com.autonoma.utils.MemoryBrand;
+import java.util.Map;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,19 +17,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class BrandController {
     
-    @GetMapping("all")
-    public String getBrands(){
-        return "Mi Marca";
-    }
-    
     @PostMapping("create")
-    public String createBrands(){
-        return "Se creo la marca";
+    public String createBrand(@RequestBody BrandDto brandDto) {
+        MemoryBrand memoryBrand = new MemoryBrand();
+        memoryBrand.create(brandDto);
+        return "Marca creada: " + brandDto;
     }
     
-    @GetMapping("read/{id}")
-    public String getBrands(@PathVariable("id") Integer id) {
-        return "Obteniendo la marca con el nombre: ";
+    @GetMapping("get/{id}")
+    public String getBrandById(@PathVariable("id") Integer id) {
+        MemoryBrand memoryBrand = new MemoryBrand();
+        String value = memoryBrand.getById(id);
+        return "Marca: " + value;
+    }
+   
+    @GetMapping("getAll")
+    public Map getAllBrand(){
+        MemoryBrand memoryBrand = new MemoryBrand();
+        return memoryBrand.getAll();
     }
     
     @PutMapping("update")
