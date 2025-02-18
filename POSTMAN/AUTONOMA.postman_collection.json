@@ -190,7 +190,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"4\",\r\n    \"name\": \"Manuel\"\r\n}",
+							"raw": "{\r\n    \"id\": \"4\",\r\n    \"name\": \"Magada\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -287,7 +287,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/categories/read/2",
+							"raw": "http://localhost:8080/categories/get/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -295,8 +295,8 @@
 							"port": "8080",
 							"path": [
 								"categories",
-								"read",
-								"2"
+								"get",
+								"4"
 							]
 						}
 					},
@@ -312,7 +312,12 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": ""
+							"raw": "{\r\n    \"id\": \"4\",\r\n    \"name\": \"Carrera\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
 							"raw": "http://localhost:8080/categories/create",
