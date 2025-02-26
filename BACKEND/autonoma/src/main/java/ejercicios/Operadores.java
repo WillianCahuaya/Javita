@@ -5,7 +5,7 @@ public class Operadores {
     public static void main(String[] args) {
         int num1, num2;
         num1= 17;
-        num2=20;
+        num2= 20;
         int Resultado_suma;
         int Resultado_resta;
         
