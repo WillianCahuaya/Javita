@@ -24,7 +24,7 @@ public class AreaDeTriangulo {
         areaDeTriangulo = (base * altura) / 2;
 
         areaDeCuadrado = base * altura;
-        
+
         System.out.println("El area del Tringulo es: " + areaDeTriangulo);
         System.out.println("El area del cudrado es: " + areaDeCuadrado);
 
