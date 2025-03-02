@@ -1,0 +1,49 @@
+<div class="text-center pt-2">
+    <form #mainForm="ngForm" class="page-login">
+        <div class="card card-body bg-gray-50">
+
+            <i class="mt-4 fa fa-user-circle-o fa-5x" aria-hidden="true"></i>
+
+            <h1 class="h3 mb-3 mt-3 font-weight-normal"> Iniciar sesión </h1>
+
+            <div class="text-left"> <label for="inputUsername">Usuario:</label> </div>
+            <input [(ngModel)]="username" type="username" id="inputUsername" name="inputUsername"
+                class="form-control" placeholder="Correo electr&oacute;nico"
+                #inputUsername="ngModel" required autofocus>
+            <label class="form-inline">
+                @if(inputUsername.invalid && (inputUsername.dirty || inputUsername.touched))
+                {
+                    <div class="text-danger">
+                        @if(inputUsername.errors?.['required'] ) {
+                            <div>Usuario es requerido</div>
+                        }
+                    </div>
+                }
+            </label>
+
+            <div class="text-left"> <label for="inputPassword">Contrase&ntilde;a: </label> </div>
+            <input [(ngModel)]="password" type="password" id="inputPassword" name="inputPassword"
+                class="form-control mb-0" placeholder="Contrase&ntilde;a" #inputPassword="ngModel"
+                maxlength="12" required>
+            <label class="form-inline">
+                @if(inputPassword.invalid && (inputPassword.dirty || inputPassword.touched))
+                {
+                    <div class="text-danger">
+                        @if(inputPassword.errors?.['required']) {
+                            <div>Contrase&ntilde;a es requerido</div>
+                        }
+                    </div>
+                }
+            </label>
+
+            <br>
+            <button class="btn btn-md btn-block btn-social btn-vk" [disabled]="!mainForm.valid" (click)="signIn()">
+                <span class="fa fa-user-circle-o"></span>
+                Login
+            </button>
+
+            <br>
+            <p class="mt-3 mb-1 text-muted">&copy; 2025</p>
+        </div>
+    </form>
+</div>

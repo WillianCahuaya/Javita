@@ -18,6 +18,7 @@ import { CommonModule } from '@angular/common';
 })
 export class BusinessComponent {
 
+    title: string = 'Autonoma';
     showNavBar: boolean = false;
     username: string | undefined = '';
 
