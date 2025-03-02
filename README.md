@@ -85,6 +85,37 @@ cd ..
 ```
 dir
 ```
+
+## Comandos Angular
+
+1. Instalar Paquete nodejs (node y npm)
+
+2. Verfificar instalacion
+```
+node -v
+npm -v
+```
+
+3. Instalar paquetes de angular
+```
+npm install -g @angular/cli
+```
+
+4. Creando el proyecto de Angular
+```
+ng new AutonomaWeb
+```
+
+5. Ejecutar el proyecto de Angular
+```
+ng serve
+```
+
+6. Abri el proyecto en el browser
+```
+http://localhost:4200/
+```
+
 ## Herramientas de trabajo
 
 1. Link para generar proyecto Java con spring boot
