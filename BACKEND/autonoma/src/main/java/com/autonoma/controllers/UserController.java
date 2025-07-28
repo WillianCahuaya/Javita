@@ -2,6 +2,7 @@ package com.autonoma.controllers;
 
 import com.autonoma.utils.MemoryUser;
 import com.autonoma.dtos.UserDto;
+import java.util.List;
 import java.util.Map;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,7 +34,7 @@ public class UserController {
     }
     
     @GetMapping("getAll")
-    public Map getAllUsers() {
+    public List getAllUsers() {
         MemoryUser memoryUser = new MemoryUser();
         return memoryUser.getAll();
     }

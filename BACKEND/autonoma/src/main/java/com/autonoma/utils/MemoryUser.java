@@ -1,7 +1,9 @@
 package com.autonoma.utils;
 
 import com.autonoma.dtos.UserDto;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 //clase
@@ -19,10 +21,10 @@ public class MemoryUser {
     private void init() {
         if (memory == null) {
             System.out.println("Contruyendo usuarios");
-            memory = new HashMap<Integer, String>();
-            memory.put(1, "Liliana");
-            memory.put(2, "Jhon");
-            memory.put(3, "Willian");
+            memory = new HashMap<Integer, UserDto>();
+            memory.put(1, new UserDto(1, "Pedro"));
+            memory.put(2, new UserDto(2, "Juan"));
+            memory.put(3, new UserDto(3, "Miguel"));
         }
     }
 
@@ -32,8 +34,9 @@ public class MemoryUser {
         return value;
     }
     
-    public Map getAll() {
-        return memory;
+    public List getAll() {
+        List<UserDto> list = new ArrayList<>(memory.values());
+        return list;
     }
     
     //metodo
