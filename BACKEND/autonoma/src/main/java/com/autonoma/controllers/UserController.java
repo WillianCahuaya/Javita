@@ -26,14 +26,13 @@ public class UserController {
         return "Usuario creado: " + userDto;
     }
     
-    @GetMapping("get/{id}")
+    @GetMapping("{id}")
     public String getUsersById(@PathVariable("id") Integer id) {
-        MemoryUser memoryUser = new MemoryUser(); 
-        String value = memoryUser.getById(id);
-        return "Usuario: " + value;
+        MemoryUser memoryUser = new MemoryUser();
+        return "Usuario: " + memoryUser.getById(id);
     }
     
-    @GetMapping("getAll")
+    @GetMapping()
     public List getAllUsers() {
         MemoryUser memoryUser = new MemoryUser();
         return memoryUser.getAll();

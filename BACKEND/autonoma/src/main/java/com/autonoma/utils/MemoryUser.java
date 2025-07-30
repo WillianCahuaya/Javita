@@ -25,13 +25,16 @@ public class MemoryUser {
             memory.put(1, new UserDto(1, "Pedro"));
             memory.put(2, new UserDto(2, "Juan"));
             memory.put(3, new UserDto(3, "Miguel"));
+            memory.put(4, new UserDto(4, "Jose"));
+            memory.put(5, new UserDto(5, "Ernesto"));
+            memory.put(7, new UserDto(7, "Gabriel"));
+            memory.put(6, new UserDto(6, "Luis"));
         }
     }
 
     //metodo
-    public String getById(int id) {
-        String value = (String) memory.get(id);
-        return value;
+    public UserDto getById(int id) {
+        return (UserDto) memory.get(id);
     }
     
     public List getAll() {
