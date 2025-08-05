@@ -1,1 +1,20 @@
-Hola soy dashboard
+<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+    <button type="button" class="btn btn-primary" [routerLink]="['']">Principal</button>
+    <button type="button" class="btn btn-primary" [routerLink]="['./login']">Login</button>
+    <button type="button" class="btn btn-primary" [routerLink]="['./user']">Usuarios</button>
+    <button type="button" class="btn btn-primary" [routerLink]="['./category']">Categorias</button>
+    <button type="button" class="btn btn-primary" [routerLink]="['./product']">Productos</button>
+
+    <div class="btn-group" role="group">
+        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Otros
+        </button>
+        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <a class="dropdown-item" [routerLink]="['./brand']">Marcas</a>
+            <a class="dropdown-item" [routerLink]="['./client']">Clientes</a>
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
