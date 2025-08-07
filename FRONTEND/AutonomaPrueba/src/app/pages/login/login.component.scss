@@ -1,5 +1,7 @@
-$color-info: #17a2b8; 
-$bg-color-info: #f8f9fa; 
+@use "sass:color";
+
+$color-info: #17a2b8;
+$bg-color-info: #f8f9fa;
 $login-box-bg: #e9ecef;
 $border-color: #ced4da;
 
@@ -7,18 +9,18 @@ $border-color: #ced4da;
 #login {
     padding-top: 100px;
     padding-bottom: 100px;
-    height: 100vh; 
+    height: 100vh;
     background-color: $bg-color-info;
 
     .container {
-        
+
         .row {
-            
+
             height: 100%;
         }
 
         .col-md-6 {
-            max-width: 500px; 
+            max-width: 500px;
         }
     }
 }
@@ -32,7 +34,7 @@ $border-color: #ced4da;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
     #login-form {
-      
+
         .text-info {
             color: $color-info;
         }
@@ -60,13 +62,13 @@ $border-color: #ced4da;
             font-weight: bold;
             transition: background-color 0.3s ease;
 
-            &:hover {
-                background-color: darken($color-info, 10%);
-                border-color: darken($color-info, 10%);
+            .tu-selector-css {
+                background-color: color.adjust($color-info, $lightness: -10%);
+                border-color: color.adjust($color-info, $lightness: -10%);
             }
         }
     }
-    
+
     #register-link {
         margin-top: 1.9norem;
     }
