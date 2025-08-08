@@ -1,12 +1,21 @@
 @use "sass:color";
-<<<<<<< HEAD
-=======
 
->>>>>>> 7eacb552f744501176f752541ffd0c2b038d9a03
-$color-info: #17a2b8;
+
 $bg-color-info: #f8f9fa;
 $login-box-bg: #e9ecef;
 $border-color: #ced4da;
+
+#login {
+    $bg-color-info: #f8f9fa;
+}
+
+#login {
+    height: 100vh;
+    background-image: url('/assets/images/login.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
 
 
 #login {
@@ -35,11 +44,12 @@ $border-color: #ced4da;
     border: 1px solid $border-color;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    $color-negro: #000;
 
     #login-form {
 
         .text-info {
-            color: $color-info;
+            color: $color-negro;
         }
 
         h4 {
@@ -59,11 +69,16 @@ $border-color: #ced4da;
         }
 
         .btn-info {
-            background-color: $color-info;
-            border-color: $color-info;
+
+            $color-info: #17a2b8;
             color: black;
             font-weight: bold;
             transition: background-color 0.3s ease;
+
+            .btn-info {
+                background-color: $color-info;
+
+            }
 
             .tu-selector-css {
                 background-color: color.adjust($color-info, $lightness: -10%);
