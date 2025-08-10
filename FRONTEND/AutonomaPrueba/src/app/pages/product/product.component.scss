@@ -1,7 +1,211 @@
-.labelText {
-    background-color: red;
+/* Estilo del contenedor principal */
+.product-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f4f7f6; /* Un color de fondo suave */
+  font-family: 'Arial', sans-serif;
 }
 
-.bodyTest {
-    background-color: yellow;
+/* Barra de búsqueda y filtros */
+.filter-bar {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 900px; /* Ancho máximo para mantener el diseño limpio */
+  
+  input, select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    flex-grow: 1; /* Permite que los elementos se expandan */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+}
+
+/* Cuadrícula de productos con un diseño responsivo */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 1200px; /* Ancho máximo para la cuadrícula */
+}
+
+/* Estilo de la tarjeta de cada producto */
+.product-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Sombra más pronunciada */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+
+  &:hover {
+    transform: translateY(-5px); /* Efecto al pasar el mouse */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  }
+
+  img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
+  h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #333;
+  }
+
+  .price {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #28a745;
+  }
+}
+
+/* Estilo de los botones */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+
+  button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    
+    &:first-of-type {
+      background-color: #007bff;
+      color: white;
+      &:hover { background-color: #0056b3; }
+    }
+    
+    &.view {
+      background: #6c757d;
+      color: white;
+      &:hover { background-color: #5a6268; }
+    }
+  }
+}
+
+/* Estilo de la sección del carrito */
+.cart-section {
+  margin-top: 40px;
+  background: #e9ecef;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+  h3 {
+    text-align: center;
+    color: #333;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    li {
+      padding: 8px 0;
+      border-bottom: 1px solid #ccc;
+    }
+    li:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .cart-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-top: 2px solid #ccc;
+    padding-top: 15px;
+
+    .checkout-btn {
+      background-color: #28a745; /* Color para el botón de pagar */
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      &:hover { background-color: #218838; }
+    }
+  }
+}
+
+/* Estilo del modal (fondo oscuro) */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Contenido del modal (el cuadro blanco) */
+.modal-content {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2em;
+    cursor: pointer;
+    color: #888;
+    &:hover { color: #333; }
+  }
+
+  img {
+    max-width: 100%;
+    height: 250px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin: 15px 0;
+  }
+
+  h2 { font-size: 1.5em; color: #333; }
+  p { margin: 10px 0; color: #666; }
+
+  .price {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+  }
+
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover { background-color: #0056b3; }
+  }
 }

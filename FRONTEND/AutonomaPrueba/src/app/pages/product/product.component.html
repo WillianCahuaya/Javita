@@ -1,39 +1,57 @@
-<!-- src/app/home/home.component.html -->
-<div class="container py-5 bg-light ">
+<main class="product-container">
+  
+  <div class="filter-bar">
+    <input type="text" placeholder="Buscar producto..." [(ngModel)]="searchTerm" aria-label="Buscar productos">
+    <select [(ngModel)]="sortOption" aria-label="Ordenar productos por">
+      <option value="name">Ordenar por nombre</option>
+      <option value="priceAsc">Precio: menor a mayor</option>
+      <option value="priceDesc">Precio: mayor a menor</option>
+    </select>
+  </div>
 
-  <!-- Grid y tarjeta -->
-  <div class="row labelText">
-    <div class="col-md-6 mb-4">
-      <div class="card shadow-sm">
-        <div class="card-header bg-white">
-          <h5 class="mb-0">Registro</h5>
-        </div>
-        <div class="card-body bodyTest">
-          <form>
-            <div class="mb-3 bg-red-700">
-              <label for="nombre" class="form-label">Nombres</label>
-              <input id="nombre" type="text" class="form-control" placeholder="Tu nombre">
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Correo</label>
-              <input id="email" type="email" class="form-control" placeholder="tú@ejemplo.com">
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-          </form>
-        </div>
+  <div class="products-grid">
+    <div class="product-card" *ngFor="let product of filteredProducts">
+      <img [src]="product.image" [alt]="product.name">
+      <h3>{{ product.name }}</h3>
+      <p class="price">S/ {{ product.price | number:'1.2-2' }}</p>
+
+      <div class="buttons">
+        <button (click)="addToCart(product)">Agregar al carrito</button>
+        <button class="view" (click)="viewProduct(product)">Ver</button>
       </div>
     </div>
+  </div>
 
-</div>
+  <div class="cart-section" *ngIf="cart.length > 0">
+    <h3>🛒 Carrito de compras</h3>
+    <ul>
+      <li *ngFor="let item of cart">
+        {{ item.name }} - S/ {{ item.price | number:'1.2-2' }}
+      </li>
+    </ul>
+    <div class="cart-summary">
+      <p>Total: S/ {{ getTotal() | number:'1.2-2' }}</p>
+      <button class="checkout-btn" (click)="checkout()">Pagar</button>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" *ngIf="selectedProduct">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()" aria-label="Cerrar modal">&times;</span>
+      
+      <h2>{{ selectedProduct?.name }}</h2>
+      <img [src]="selectedProduct?.image" [alt]="selectedProduct?.name">
+      <p>{{ selectedProduct?.description }}</p>
+      <p class="price">S/ {{ selectedProduct?.price | number:'1.2-2' }}</p>
+      <button (click)="addToCart(selectedProduct)">Agregar al carrito</button>
+    </div>
+  </div>
+</main>
 
 
-<div class="container py-3">
-  <h3 class="mb-3">Mi Lista de Productos</h3>
-  <ul class="list-group">
-    <li class="list-group-item d-flex justify-content-between align-items-center"
-      *ngFor="let user of users; let i = index">
-      00{{ user.id }} - {{ user.name }}
-      <span class="badge bg-primary rounded-pill">{{ i + 1 }}</span>
-    </li>
-  </ul>
-</div>
+
+
+
+
+
+
