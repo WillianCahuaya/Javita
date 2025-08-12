@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class AutonomaApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(AutonomaApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(AutonomaApplication.class, args);
+    }
 
 }
