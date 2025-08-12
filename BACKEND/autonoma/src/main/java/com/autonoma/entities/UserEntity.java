@@ -1,9 +1,11 @@
 package com.autonoma.entities;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
 @Table(name = "users")
+@Data
 public class UserEntity {
 
     @Id
@@ -25,6 +27,7 @@ public class UserEntity {
     @Column(nullable = false)
     private String password;
 
+    
     public UserEntity() {
     }
 

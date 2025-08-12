@@ -1,44 +1,55 @@
 package com.autonoma.controllers;
 
-import com.autonoma.dtos.UserDto;
-import com.autonoma.utils.MemoryUser;
+import com.autonoma.entities.UserEntity;
+import com.autonoma.services.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 
 @RestController
 @RequestMapping("users")
 public class UserController {
 
-    //CRUD =>  Create, Read, Update, Delete
-    
-    @PostMapping("create")
-    public String createUser(@RequestBody UserDto userDto) {
-        MemoryUser memoryUser = new MemoryUser();
-        memoryUser.create(userDto);
-        return "Usuario creado: " + userDto;
+    @Autowired
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
-    
-    @GetMapping("{id}")
-    public String getUsersById(@PathVariable("id") Integer id) {
-        MemoryUser memoryUser = new MemoryUser();
-        return "Usuario: " + memoryUser.getById(id);
+
+    @PostMapping
+    public UserEntity create(@RequestBody UserEntity userEntity) {
+        return userService.save(userEntity);
     }
-    
-    @GetMapping()
-    public List getAllUsers() {
-        MemoryUser memoryUser = new MemoryUser();
-        return memoryUser.getAll();
+
+    @PutMapping("/{id}")
+    public ResponseEntity<UserEntity> update(@PathVariable Long id, @RequestBody UserEntity userEntity) {
+        return userService.findById(id)
+                .map(existing -> {
+                    existing.setUsername(userEntity.getUsername());
+                    existing.setEmail(userEntity.getEmail());
+                    return ResponseEntity.ok(userService.save(existing));
+                })
+                .orElse(ResponseEntity.notFound().build());
     }
-    
-    @PutMapping("update")
-    public String updateUser() {
-        return "Actualziando mi usuario";
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        userService.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
-    
-    @DeleteMapping("delete")
-    public String deleteUser() {
-        return "Eliminando mi usuario";
+
+    @GetMapping("/{id}")
+    public ResponseEntity<UserEntity> getById(@PathVariable Long id) {
+        return userService.findById(id).map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
-   
+
+    @GetMapping
+    public List<UserEntity> all() {
+        return userService.findAll();
+    }
+
 }
