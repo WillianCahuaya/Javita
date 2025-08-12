@@ -1,73 +1,114 @@
-$color-info: #17a2b8; 
-$bg-color-info: #f8f9fa; 
-$login-box-bg: #e9ecef;
-$border-color: #ced4da;
+/* Fuente moderna */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-
-#login {
-    padding-top: 100px;
-    padding-bottom: 100px;
-    height: 100vh; 
-    background-color: $bg-color-info;
-
-    .container {
-        
-        .row {
-            
-            height: 100%;
-        }
-
-        .col-md-6 {
-            max-width: 500px; 
-        }
-    }
+/* Contenedor del login */
+.login-container {
+  font-family: 'Poppins', sans-serif;
+  max-width: 350px;
+  margin: 50px auto;
+  padding: 25px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-
-#login-box {
-    background-color: $login-box-bg;
-    padding: 2rem;
-    border: 1px solid $border-color;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
-    #login-form {
-      
-        .text-info {
-            color: $color-info;
-        }
-
-        h4 {
-            margin-bottom: 1.8rem;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-
-            label {
-                font-weight: bold;
-            }
-        }
-
-        .form-control {
-            border-radius: 4px;
-        }
-
-        .btn-info {
-            background-color: $color-info;
-            border-color: $color-info;
-            color: black;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-
-            &:hover {
-                background-color: darken($color-info, 10%);
-                border-color: darken($color-info, 10%);
-            }
-        }
-    }
-    
-    #register-link {
-        margin-top: 1.9norem;
-    }
+.login-container h2 {
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
+
+/* Formulario */
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px 12px;
+  transition: border-color 0.3s;
+}
+
+.form-group:focus-within {
+  border-color: #007bff;
+}
+
+/* Iconos con animación */
+.icon {
+  margin-right: 10px;
+  font-size: 18px;
+  animation: moveIcon 1.5s infinite ease-in-out;
+}
+
+@keyframes moveIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* Inputs */
+input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Advertencias */
+.warning {
+  color: #d9534f;
+  font-size: 13px;
+  margin-top: -8px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* Botón */
+button {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(45deg, #007bff, #00c6ff);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.3s;
+}
+
+button:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Efecto ola en letras del botón */
+button span i {
+  display: inline-block;
+  animation: wave 1.2s infinite;
+}
+
+@keyframes wave {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-4px); }
+}
+
+/* Retraso secuencial */
+button span i:nth-child(1) { animation-delay: 0s; }
+button span i:nth-child(2) { animation-delay: 0.05s; }
+button span i:nth-child(3) { animation-delay: 0.1s; }
+button span i:nth-child(4) { animation-delay: 0.15s; }
+button span i:nth-child(5) { animation-delay: 0.2s; }
+button span i:nth-child(6) { animation-delay: 0.25s; }
+button span i:nth-child(7) { animation-delay: 0.3s; }
+button span i:nth-child(8) { animation-delay: 0.35s; }
+button span i:nth-child(9) { animation-delay: 0.4s; }
+button span i:nth-child(10) { animation-delay: 0.45s; }
+button span i:nth-child(11) { animation-delay: 0.5s; }
+button span i:nth-child(12) { animation-delay: 0.55s; }
+button span i:nth-child(13) { animation-delay: 0.6s; }

@@ -1,113 +1,28 @@
-<!-- src/app/home/home.component.html -->
-<div class="container py-5 bg-light ">
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">MiApp</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navDemo"
-        aria-controls="navDemo" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navDemo">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" routerLink="/">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" routerLink="/about">Acerca</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Grid y tarjeta -->
-  <div class="row labelText">
-    <div class="col-md-6 mb-4">
-      <div class="card shadow-sm">
-        <div class="card-header bg-white">
-          <h5 class="mb-0">Registro</h5>
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+  <div class="card p-4 shadow-sm" style="width: 25rem;">
+    <div class="card-body">
+      <h2 class="card-title text-center mb-4">Registro de Usuario</h2>
+      <form (ngSubmit)="onSubmitRegistro()" #registroForm="ngForm" novalidate>
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" id="nombre" class="form-control" name="nombre" ngModel required #nombre="ngModel">
+          <div class="text-danger mt-1" *ngIf="nombre.invalid && nombre.touched">
+            ⚠ El nombre es obligatorio.
+          </div>
         </div>
-        <div class="card-body bodyTest">
-          <form>
-            <div class="mb-3 bg-red-700">
-              <label for="nombre" class="form-label">Nombresssssss</label>
-              <input id="nombre" type="text" class="form-control" placeholder="Tu nombre">
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Correo</label>
-              <input id="email" type="email" class="form-control" placeholder="tú@ejemplo.com">
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-          </form>
+
+        <div class="mb-3">
+          <label for="correo" class="form-label">Correo</label>
+          <input type="email" id="correo" class="form-control" name="correo" ngModel required email #correo="ngModel">
+          <div class="text-danger mt-1" *ngIf="correo.invalid && correo.touched">
+            ⚠ Ingrese un correo válido.
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="col-md-6 mb-4">
-      <div class="alert alert-success" role="alert">
-        ¡Bootstrap funciona en tu componente Angular 20!
-      </div>
-      <button class="btn btn-outline-secondary">Acción</button>
-    </div>
-  </div>
-</div>
-
-<div class="row min-h-screen bg-gray-100 flex items-center justify-center">
-  <button class="px-4 py-2 bg-blue-600 text-black rounded hover:bg-red-700">
-    ¡Hola Tailwind! >>> {{ message }}
-  </button>
-</div>
-
-<div class="container py-3">
-  <h3 class="mb-3">Mi Lista de Usuarios</h3>
-  <ul class="list-group">
-    <li class="list-group-item d-flex justify-content-between align-items-center"
-      *ngFor="let user of users; let i = index">
-      00{{ user.id }} - {{ user.name }}
-      <span class="badge bg-primary rounded-pill">{{ i + 1 }}</span>
-    </li>
-  </ul>
-</div>
-
-<div class="container py-3">
-  <form>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Nombre</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-        placeholder="Ingresar el nombre">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Correo</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="ingresar correo">
-    </div>
-    <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Guardar</button>
-  </form>
-</div>
-
-<div class="container py-3">
-  <button type="button" class="btn btn-primary">Primary</button>
-  <button type="button" class="btn btn-secondary">Secondary</button>
-  <button type="button" class="btn btn-success">Success</button>
-  <button type="button" class="btn btn-danger">Danger</button>
-  <button type="button" class="btn btn-warning">Warning</button>
-  <button type="button" class="btn btn-info">Info</button>
-  <button type="button" class="btn btn-light">Light</button>
-  <button type="button" class="btn btn-dark">Dark</button>
-</div>
-
-<div class="container py-3">
-  <div class="dropdown show">
-    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-      aria-haspopup="true" aria-expanded="false">
-      Dropdown link
-    </a>
-
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
+        <button type="submit" class="btn btn-primary w-100" [disabled]="registroForm.invalid">
+          Registrar
+        </button>
+      </form>
     </div>
   </div>
 </div>
