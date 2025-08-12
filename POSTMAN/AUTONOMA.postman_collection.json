@@ -1,16 +1,16 @@
 {
 	"info": {
-		"_postman_id": "90a19307-8c42-42b1-9925-677ea32554a8",
+		"_postman_id": "a7b20232-9470-4250-a93c-99f470860f07",
 		"name": "AUTONOMA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "41946671"
+		"_exporter_id": "8112246"
 	},
 	"item": [
 		{
 			"name": "PRODUCTS",
 			"item": [
 				{
-					"name": "Get Products all",
+					"name": "Get Products",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -22,15 +22,10 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/products/getAll",
+							"raw": "http://localhost:8080/products/all",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -38,43 +33,7 @@
 							"port": "8080",
 							"path": [
 								"products",
-								"getAll"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Products read get",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/products/get/6",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"products",
-								"get",
-								"6"
+								"all"
 							]
 						}
 					},
@@ -90,12 +49,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"4\",\r\n    \"name\": \"Manuel\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"raw": ""
 						},
 						"url": {
 							"raw": "http://localhost:8080/products/create",
@@ -122,12 +76,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"raw": ""
 						},
 						"url": {
 							"raw": "http://localhost:8080/products/update",
@@ -145,6 +94,37 @@
 					"response": []
 				},
 				{
+					"name": "Products read",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/products/read/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"read",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Products Delete",
 					"request": {
 						"auth": {
@@ -154,12 +134,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"raw": ""
 						},
 						"url": {
 							"raw": "http://localhost:8080/products/delete",
@@ -179,190 +154,25 @@
 			]
 		},
 		{
-			"name": "BRANDS",
-			"item": [
-				{
-					"name": "Get Brands all",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/brands/getAll",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"brands",
-								"getAll"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Brands read",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/brands/get/6",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"brands",
-								"get",
-								"6"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Brands Create",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"4\",\r\n    \"name\": \"Manuel\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/brands/create",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"brands",
-								"create"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Brands Update",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/brands/update",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"brands",
-								"update"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Brands Delete",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/brands/delete",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"brands",
-								"delete"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "CLIENT",
 			"item": [
 				{
 					"name": "Get client",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"auth": {
 							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "http://localhost:8080/client/get/4",
+							"raw": "http://localhost:8080/client/read/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -370,8 +180,8 @@
 							"port": "8080",
 							"path": [
 								"client",
-								"get",
-								"4"
+								"read",
+								"2"
 							]
 						}
 					},
@@ -387,12 +197,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"4\",\r\n    \"name\": \"Magada\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"raw": ""
 						},
 						"url": {
 							"raw": "http://localhost:8080/client/create",
@@ -484,7 +289,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/categories/get/4",
+							"raw": "http://localhost:8080/categories/read/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -492,8 +297,8 @@
 							"port": "8080",
 							"path": [
 								"categories",
-								"get",
-								"4"
+								"read",
+								"2"
 							]
 						}
 					},
@@ -509,12 +314,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"4\",\r\n    \"name\": \"Carrera\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"raw": ""
 						},
 						"url": {
 							"raw": "http://localhost:8080/categories/create",
@@ -588,41 +388,37 @@
 			]
 		},
 		{
-			"name": "USER",
+			"name": "BRANDS",
 			"item": [
 				{
-					"name": "Get users",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
+					"name": "Brands Create",
 					"request": {
 						"auth": {
 							"type": "noauth"
 						},
-						"method": "GET",
+						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/users/get/6",
+							"raw": "http://localhost:8080/brands/create",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"users",
-								"get",
-								"6"
+								"brands",
+								"create"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Get all users",
+					"name": "Brands read",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -637,20 +433,110 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/users/getAll",
+							"raw": "http://localhost:8080/brands/read/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"users",
-								"getAll"
+								"brands",
+								"read",
+								"1"
 							]
 						}
 					},
 					"response": []
 				},
+				{
+					"name": "Get Brands",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/brands/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"brands",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Brands Delete",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/brands/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"brands",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Brands Update",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/brands/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"brands",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "USER",
+			"item": [
 				{
 					"name": "Create user",
 					"request": {
@@ -661,7 +547,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"4\",\r\n    \"name\": \"Manuel\"\r\n}",
+							"raw": "{\r\n    \"dni\": \"12345678\",\r\n    \"username\": \"wcahuaya\",\r\n    \"email\": \"wcahuaya@gmail.com\",\r\n    \"role\": \"Administrador\",\r\n    \"password\": \"admin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -669,15 +555,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/users/create",
+							"raw": "http://localhost:8080/users",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"users",
-								"create"
+								"users"
 							]
 						}
 					},
@@ -693,12 +578,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"raw": ""
 						},
 						"url": {
 							"raw": "http://localhost:8080/users/update",
@@ -737,6 +617,65 @@
 							"path": [
 								"users",
 								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
 							]
 						}
 					},
