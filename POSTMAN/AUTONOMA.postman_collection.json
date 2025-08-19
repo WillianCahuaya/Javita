@@ -547,7 +547,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"dni\": \"12345678\",\r\n    \"username\": \"wcahuaya\",\r\n    \"email\": \"wcahuaya@gmail.com\",\r\n    \"role\": \"Administrador\",\r\n    \"password\": \"admin\"\r\n}",
+							"raw": "{\r\n    \"dni\": \"12345555\",\r\n    \"username\": \"wcahuaya7\",\r\n    \"email\": \"wcahuaya7@gmail.com\",\r\n    \"role\": \"Invitado\",\r\n    \"password\": \"invit\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -578,10 +578,15 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": ""
+							"raw": "{\r\n    \"username\": \"wcahuaya222\",\r\n    \"email\": \"wcahuaya222@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/users/update",
+							"raw": "http://localhost:8080/users/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -589,7 +594,7 @@
 							"port": "8080",
 							"path": [
 								"users",
-								"update"
+								"2"
 							]
 						}
 					},
@@ -608,7 +613,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/users/delete",
+							"raw": "http://localhost:8080/users/6",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -616,7 +621,7 @@
 							"port": "8080",
 							"path": [
 								"users",
-								"delete"
+								"6"
 							]
 						}
 					},
@@ -638,7 +643,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/users/3",
+							"raw": "http://localhost:8080/users/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -646,7 +651,7 @@
 							"port": "8080",
 							"path": [
 								"users",
-								"3"
+								"4"
 							]
 						}
 					},

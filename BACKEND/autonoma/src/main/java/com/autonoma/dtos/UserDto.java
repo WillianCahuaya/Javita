@@ -1,36 +1,22 @@
-
 package com.autonoma.dtos;
 
+import lombok.Data;
+import lombok.ToString;
 
+@ToString
+@Data
 public class UserDto {
-    
-    private int id;
-    private String name;
 
-    public UserDto(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+    private Long id;
 
-    public int getId() {
-        return id;
-    }
+    private String dni;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    private String username;
 
-    public String getName() {
-        return name;
-    }
+    private String email;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    private String role;
 
-    @Override
-    public String toString() {
-        return "UserDto{" + "id=" + id + ", name=" + name + '}';
-    }
-    
+    private String password;
+
 }
