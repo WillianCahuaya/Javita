@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ApiService, User } from '../../services/api.service';
+import { ApiService, User } from '../../apis/user.api';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // ✅ Necesario para ngModel
 

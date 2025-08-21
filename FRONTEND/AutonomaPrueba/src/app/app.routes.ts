@@ -11,6 +11,6 @@ export const routes: Routes = [
     },
     {
         path: 'dashboard',
-        loadChildren: () => import('./pages/page-routes').then(m => m.PAGE_ROUTES)
+        loadChildren: () => import('./business/business-routes').then(m => m.BUSINESS_ROUTES)
     }
 ];

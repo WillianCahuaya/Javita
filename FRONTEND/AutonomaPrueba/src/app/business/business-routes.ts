@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { UserComponent } from './user/user.component';
-import { ProductComponent } from './product/product.component';
-import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { WelcomeComponent } from './welcome/welcome.component';
+import { UserComponent } from './components/user/user.component';
+import { ProductComponent } from './components/product/product.component';
+import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
-export const PAGE_ROUTES: Routes = [
+export const BUSINESS_ROUTES: Routes = [
   {
     path: '',
     component: DashboardComponent,
