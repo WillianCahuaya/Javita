@@ -1,26 +1,34 @@
 package com.autonoma.dtos;
 
+import lombok.Data;
+import lombok.ToString;
+
+@ToString
+@Data
+
 public class BrandDto {
-    private int id;
-    private String name;
+   
+
+    private Long id;
+
+    private String dni;
+
+    private String username;
+
+    private String email;
+
+    private String role;
+
+    private String password;
     
-    public int getId(){
-        return id;
+    private String telefono;
+
+    public Object getName() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
-    public void setId(int id){
-        this.id = id;
+
+    public Object getId() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
-    public String getName(){
-        return name;
-    }
-    
-    public void setName(String name){
-        this.name = name;
-    }
-    @Override
-    public String toString(){
-        return "BrandDto{" + "id="  + id + ", name" + name + ')';   
-    }
+
 }
