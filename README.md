@@ -12,38 +12,46 @@
 ```
 git clone https://github.com/WillianCahuaya/Javita.git
 ```
+
 2. Para ver el estado de la branch
 ```
 git status
 ```
+
 3. Para crear un nuevo branch
 ```
 git branch <<newbranch>>
 git branch develop
 ```
+
 4. Para ver los branch actuales que tienes actualmente
 ```
 git branch
 git branch -all
 ```
+
 5. Para cambiar de una rama a otra
 ```
 git checkout <<branch>>
 git checkout develop
 ```
+
 6. Para traer los cambios del repositorio remoto al repositorio local
 ```
 git pull origin <<branch>>
 git pull origin develop
 ```
+
 7. Actualizar todos los branch existente
 ```
 git fetch origin
 ```
+
 8. Para commitear los cambios a repositorio local
 ```
 git commit -m "Su mensaje respectivo"
 ```
+
 9. Para publicar los cambios en repositorio remoto
 ```
 git push origin <<branch>>
@@ -57,19 +65,85 @@ git push origin develop
 Teclas  : Windows + R
 escribes: CMD
 ```
+
 2. Limpiar la pantalla de comandod
 ```
 cls
 ```
+
 3. Redireccionar hacia una carpeta
 ```
 cd <<archivos>>
 ```
+
 4. Retroceder a un archivo anterior
 ```
 cd ..
 ```
+
 5. Mostrar las carpetas y archivos dentro del folder ubicado
 ```
 dir
 ```
+
+## Comandos Angular
+
+1. Instalar Paquete nodejs (node y npm)
+
+2. Verfificar instalacion
+```
+node -v
+npm -v
+```
+
+3. Instalar paquetes de angular
+```
+npm install -g @angular/cli
+```
+
+4. Creando el proyecto de Angular
+```
+ng new AutonomaWeb
+```
+
+5. Ejecutar el proyecto de Angular
+```
+ng serve
+```
+
+6. Abri el proyecto en el browser
+```
+http://localhost:4200/
+```
+
+## Herramientas de trabajo
+
+1. Link para generar proyecto Java con spring boot
+```
+https://start.spring.io/
+```
+
+2. Link para postman
+```
+https://www.postman.com/downloads/
+```
+
+3. Localhost Java
+```
+http://localhost:8080/
+http://localhost:8080/users/all
+http://localhost:8080/products/all
+http://localhost:8080/categories/all
+```
+
+## Aprendiendo tecnologias
+1. Git y Github
+2. Trello
+3. Scrum
+4. Java (Spring boot)
+5. Postman
+
+## Temas
+Willian => User | Users
+Lilian  => Product | Produts
+Jhon    => Category | Categories

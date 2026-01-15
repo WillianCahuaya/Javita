@@ -1,0 +1,49 @@
+<div class="login-container">
+  <h2>Iniciar Sesión</h2>
+
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+
+    <!-- Campo Usuario -->
+    <div class="form-group">
+      <span class="icon">👤</span>
+      <input
+        type="text"
+        name="username"
+        placeholder="Usuario"
+        [(ngModel)]="username"
+        required
+        minlength="3"
+        #usernameField="ngModel">
+    </div>
+    <div class="warning" *ngIf="usernameField.invalid && usernameField.touched">
+      ⚠️ El usuario es obligatorio (mínimo 3 caracteres).
+    </div>
+
+    <!-- Campo Contraseña -->
+    <div class="form-group">
+      <span class="icon">🔒</span>
+      <input
+        type="password"
+        name="password"
+        placeholder="Contraseña"
+        [(ngModel)]="password"
+        required
+        minlength="6"
+        #passwordField="ngModel">
+    </div>
+    <div class="warning" *ngIf="passwordField.invalid && passwordField.touched">
+      ⚠️ La contraseña es obligatoria (mínimo 6 caracteres).
+    </div>
+
+    <!-- Botón con animación -->
+    <button type="submit" [disabled]="loginForm.invalid">
+      <span>
+        <i>I</i><i>n</i><i>i</i><i>c</i><i>i</i><i>a</i><i>r</i>&nbsp;
+        <i>s</i><i>e</i><i>s</i><i>i</i><i>ó</i><i>n</i>
+      </span>
+    </button>
+  </form>
+</div>
+
+
+

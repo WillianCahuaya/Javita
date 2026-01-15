@@ -1,0 +1,114 @@
+/* Fuente moderna */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Contenedor del login */
+.login-container {
+  font-family: 'Poppins', sans-serif;
+  max-width: 350px;
+  margin: 50px auto;
+  padding: 25px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-container h2 {
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Formulario */
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px 12px;
+  transition: border-color 0.3s;
+}
+
+.form-group:focus-within {
+  border-color: #007bff;
+}
+
+/* Iconos con animación */
+.icon {
+  margin-right: 10px;
+  font-size: 18px;
+  animation: moveIcon 1.5s infinite ease-in-out;
+}
+
+@keyframes moveIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* Inputs */
+input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Advertencias */
+.warning {
+  color: #d9534f;
+  font-size: 13px;
+  margin-top: -8px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* Botón */
+button {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(45deg, #007bff, #00c6ff);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.3s;
+}
+
+button:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Efecto ola en letras del botón */
+button span i {
+  display: inline-block;
+  animation: wave 1.2s infinite;
+}
+
+@keyframes wave {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-4px); }
+}
+
+/* Retraso secuencial */
+button span i:nth-child(1) { animation-delay: 0s; }
+button span i:nth-child(2) { animation-delay: 0.05s; }
+button span i:nth-child(3) { animation-delay: 0.1s; }
+button span i:nth-child(4) { animation-delay: 0.15s; }
+button span i:nth-child(5) { animation-delay: 0.2s; }
+button span i:nth-child(6) { animation-delay: 0.25s; }
+button span i:nth-child(7) { animation-delay: 0.3s; }
+button span i:nth-child(8) { animation-delay: 0.35s; }
+button span i:nth-child(9) { animation-delay: 0.4s; }
+button span i:nth-child(10) { animation-delay: 0.45s; }
+button span i:nth-child(11) { animation-delay: 0.5s; }
+button span i:nth-child(12) { animation-delay: 0.55s; }
+button span i:nth-child(13) { animation-delay: 0.6s; }

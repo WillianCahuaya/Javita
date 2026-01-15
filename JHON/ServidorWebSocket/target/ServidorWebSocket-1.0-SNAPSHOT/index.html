@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+  <meta charset="UTF-8">
+  <title>Notificaciones de Sismos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f5f5f5;
+      color: #212121;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px 10px;
+    }
+    .dark-mode {
+      background: #121212;
+      color: #e0e0e0;
+    }
+    .mode-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 1.8em;
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+    .mode-icon:hover {
+      transform: rotate(20deg) scale(1.1);
+    }
+    .logo {
+      width: 140px;
+      height: 140px;
+      background: linear-gradient(135deg, #d32f2f, #c62828);
+      border-radius: 50%;
+      margin: 30px auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2em;
+      color: white;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .logo:hover {
+      transform: scale(1.05);
+    }
+    h1 {
+      font-size: 2.8em;
+      color: #d32f2f;
+      font-weight: 500;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .dark-mode h1 {
+      color: #ef5350;
+    }
+    #notifications {
+      width: 90%;
+      max-width: 750px;
+      border-radius: 16px;
+      padding: 25px;
+      height: 600px;
+      overflow-y: auto;
+      background: #ffffff;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      margin: 20px 0 30px;
+    }
+    .dark-mode #notifications {
+      background: #212121;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+    .notification, .historical {
+      margin: 15px 0;
+      padding: 15px 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      animation: slideIn 0.4s ease-out;
+    }
+    .notification {
+      background: #e8f5e9;
+      border-left: 6px solid #4caf50;
+    }
+    .historical {
+      background: #fff3e0;
+      border-left: 6px solid #ff9800;
+    }
+    .dark-mode .notification {
+      background: #1b5e20;
+      border-left-color: #66bb6a;
+    }
+    .dark-mode .historical {
+      background: #3e2723;
+      border-left-color: #ffa726;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ÍCONO DE MODO OSCURO -->
+  <div class="mode-icon" onclick="toggleDarkMode()">🌙</div>
+
+  <!-- LOGO -->
+  <div class="logo">Perú</div>
+
+  <h1>Sistema de Notificación de Sismos en Tiempo Real</h1>
+
+  <div id="notifications"></div>
+
+  <script>
+    const ws = new WebSocket('ws://localhost:8080/sismo');
+    let isDarkMode = false;
+
+    // Eventos históricos
+    const historicalEvents = [
+      { magnitude: 3.9, location: "Arequipa", time: "2025-07-11 20:00:00" },
+      { magnitude: 5.1, location: "Cusco", time: "2025-07-11 19:30:00" },
+      { magnitude: 4.8, location: "Lima", time: "2025-07-11 18:15:00" }
+    ].reverse();
+
+    // Mostrar historial
+    window.onload = function () {
+      const notificationDiv = document.getElementById('notifications');
+      historicalEvents.forEach(event => {
+        const div = document.createElement('div');
+        div.className = 'notification historical';
+        div.innerHTML = `<strong>Alerta (Histórica):</strong> Magnitud: ${event.magnitude}, Ubicación: ${event.location}, Hora: ${event.time}`;
+        notificationDiv.appendChild(div);
+      });
+    };
+
+    // Evento recibido
+    ws.onmessage = function (event) {
+      const div = document.getElementById('notifications');
+      const newDiv = document.createElement('div');
+      newDiv.className = 'notification';
+
+      const now = new Date();
+      const date = now.toLocaleDateString('es-PE', { timeZone: 'America/Lima' }); // dd/mm/yyyy
+      const time = now.toLocaleTimeString('es-PE', { timeZone: 'America/Lima' }); // hh:mm:ss
+
+      newDiv.innerHTML = `<strong>Alerta:</strong> ${event.data} - Recibido el ${date} ${time}`;
+      div.insertBefore(newDiv, div.firstChild); // mostrar arriba
+      div.scrollTop = 0;
+    };
+
+    function toggleDarkMode() {
+      isDarkMode = !isDarkMode;
+      document.body.classList.toggle('dark-mode', isDarkMode);
+    }
+  </script>
+
+</body>
+</html>

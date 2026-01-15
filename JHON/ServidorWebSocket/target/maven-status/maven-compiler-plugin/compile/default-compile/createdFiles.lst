@@ -1,0 +1,4 @@
+com\ejemplo\servidorwebsocket\JAXRSConfiguration.class
+com\ejemplo\servidorwebsocket\resources\JavaEE8Resource.class
+servidorwebsocket\SismoConsola.class
+servidorwebsocket\SismoWebSocketServer.class

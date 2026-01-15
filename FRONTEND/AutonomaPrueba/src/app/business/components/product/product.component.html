@@ -1,0 +1,145 @@
+<!-- Archivo: product.component.html
+     INSTRUCCIONES: A continuación está tu HTML ORIGINAL con COMENTARIOS EXPLICATIVOS
+     insertados (HTML comments . NO se cambia ninguna línea funcional,
+     solo se añaden comentarios para que identifiques paso a paso qué hace cada parte
+     y qué métodos/estilos debes tener en TypeScript/SCSS.
+-->
+
+<main class="product-container">
+
+  <!-- Paso 1 — BARRA DE FILTROS
+    - [(ngModel)]="searchTerm"  -> two-way binding (requiere FormsModule).
+    - [(ngModel)]="sortOption"  -> two-way binding para ordenar.
+    - Asegúrate en TS de tener: searchTerm: string = ''; sortOption = 'name';
+  -->
+  <div class="filter-bar">
+    <!-- Two-way binding de datos -->
+    <input type="text" placeholder="Buscar producto..." [(ngModel)]="searchTerm" aria-label="Buscar productos">
+
+    <!-- Two-way binding de datos -->
+    <select [(ngModel)]="sortOption" aria-label="Ordenar productos por">
+      <option value="name">Ordenar por nombre</option>
+      <option value="priceAsc">Precio: menor a mayor</option>
+      <option value="priceDesc">Precio: mayor a menor</option>
+    </select>
+
+    <!--
+      Ícono del carrito con contador:
+      - (click)="toggleCart()" -> acción en TS para mostrar/ocultar la sección carrito.
+      - {{ cart.length }} -> interpolación que muestra número de items (badge).
+      - En TS: implementa toggleCart() y la variable showCart: boolean.
+    -->
+    <!-- Icono del carrito con contador -->
+    <div class="cart-icon" (click)="toggleCart()" aria-label="Ver carrito">
+      🛒
+      <span class="cart-count" *ngIf="cart.length > 0">{{ cart.length }}</span>
+    </div>
+
+  </div>
+
+  <!--
+    Paso 2 — LISTA DE PRODUCTOS
+    - *ngFor="let product of filteredProducts" -> debes tener el getter filteredProducts en TS
+      que filtre por searchTerm y ordene por sortOption.
+    - [src] y [alt] -> property binding para la imagen.
+    - {{ product.name }} / {{ product.price | number:'1.2-2' }} -> interpolación.
+    - (click)="addToCart(product)" -> método TS que agrega al carrito.
+    - (click)="viewProduct(product)" -> método TS que abre modal (selectedProduct = product).
+  -->
+  <div class="products-grid">
+    <!-- Property binding [src] y [alt] + Interpolación {{ }} -->
+    <div class="product-card" *ngFor="let product of filteredProducts">
+      <img [src]="product.image" [alt]="product.name">
+
+      <!-- Interpolación -->
+      <h3>{{ product.name }}</h3>
+      <p class="price">S/ {{ product.price | number:'1.2-2' }}</p>
+
+      <div class="buttons">
+        <!-- Event binding (click) -->
+        <button (click)="addToCart(product)">Agregar al carrito</button>
+
+        <!-- Event binding (click) -->
+        <button class="view" (click)="viewProduct(product)">Ver</button>
+      </div>
+    </div>
+  </div>
+
+  <!--
+    Paso 3 — SECCIÓN CARRITO
+    - *ngIf="cart.length > 0 && showCart" -> muestra solo si hay items y showCart es true.
+    - Dentro de la <li> se recorre cart con *ngFor.
+    - El botón remove llama a removeFromCart(item) en TS.
+    - Asegúrate en SCSS de tener .remove-btn/.btn-remove o la clase que uses para centrar y diseñar.
+  -->
+  <div class="cart-section" *ngIf="cart.length > 0 && showCart">
+    <h3>🛒 Carrito de compras</h3>
+    <ul>
+      <li *ngFor="let item of cart">
+        {{ item.name }} - S/ {{ item.price | number:'1.2-2' }}
+        <!-- Botón para eliminar producto del carrito -->
+        <!-- ====== EN HTML: este botón ya está aquí; en TS implementar removeFromCart(item) ====== -->
+        <button class="remove-btn" (click)="removeFromCart(item)"> 🗑 Eliminar</button>
+
+        <!--
+          Sugerencia (no modificar ahora): si quieres cantidad, muestra (x{{ item.quantity || 1 }}) y
+          que removeFromCart reduzca cantidad o elimine.
+        -->
+      </li>
+    </ul>
+
+    <!--
+      Paso 4 — RESUMEN Y ACCIONES
+      - getTotal() -> función TS que suma precios.
+      - (click)="checkout()" -> procesar pago (validar carrito no vacío, limpiar cart, cerrar modal si está abierto).
+      - (click)="printReceipt()" -> abrir ventana para imprimir boleta (implementar en TS).
+    -->
+    <div class="cart-summary">
+      <p>Total: S/ {{ getTotal() | number:'1.2-2' }}</p>
+      <button class="checkout-btn" (click)="checkout()">Pagar</button>
+
+      <!-- Botón para imprimir boleta -->
+      <button class="print-btn" (click)="printReceipt()">Imprimir boleta</button>
+      
+    </div>
+  </div>
+
+  <!--
+    Paso 5 — MODAL DE DETALLE
+    - *ngIf="selectedProduct" -> muestra modal si selectedProduct !== null.
+    - (click)="closeModal()" -> método TS que pone selectedProduct = null.
+    - Dentro, usa safe-navigation selectedProduct? para evitar errores.
+    - El botón Agregar al carrito usa addToCart(selectedProduct) — si selectedProduct puede ser null,
+      mejor en TS manejar el caso (verificar antes de agregar).
+  -->
+  <div class="modal-backdrop" *ngIf="selectedProduct">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()" aria-label="Cerrar modal">&times;</span>
+
+      <h2>{{ selectedProduct?.name }}</h2>
+      <img [src]="selectedProduct?.image" [alt]="selectedProduct?.name">
+      <p>{{ selectedProduct?.description }}</p>
+      <p class="price">S/ {{ selectedProduct?.price | number:'1.2-2' }}</p>
+      <button (click)="addToCart(selectedProduct)">Agregar al carrito</button>
+    </div>
+  </div>
+</main>
+
+<!--
+  RESUMEN PASO A PASO (rápido) — ¿qué ocurre cuando el usuario interactúa?
+  1) Escribe en el input -> searchTerm cambia por [(ngModel)] -> filteredProducts se actualiza.
+  2) Selecciona orden -> sortOption cambia por [(ngModel)] -> filteredProducts se reordena.
+  3) Clic en "Ver" -> viewProduct(product) -> selectedProduct = product -> abre modal.
+  4) Clic en "Agregar al carrito" -> addToCart(product) -> cart.push(...) -> cart-count incrementa.
+  5) Clic en icono carrito -> toggleCart() -> showCart = !showCart (muestra/oculta carrito).
+  6) En carrito, clic en "Eliminar" -> removeFromCart(item) -> filtrar cart en TS y actualizar badge.
+  7) Clic en "Pagar" -> checkout() -> validar, procesar (o simular), limpiar carrito.
+  8) Clic en "Imprimir boleta" -> printReceipt() -> abrir ventana/ventana.print() con contenido.
+
+  NOTAS TÉCNICAS RÁPIDAS:
+  - Asegúrate en el componente TS de tener importado FormsModule (ya lo tienes en imports).
+  - Implementa estas funciones en TS: filteredProducts (getter), addToCart, removeFromCart,
+    getTotal, toggleCart, checkout, printReceipt, viewProduct, closeModal.
+  - Estilos clave: .cart-icon, .cart-count, .remove-btn / .btn-remove, .checkout-btn, .print-btn, .modal-backdrop, .modal-content.
+  - Accesibilidad: los botones tienen aria-labels; considera añadir role="button" y focus styles.
+-->
